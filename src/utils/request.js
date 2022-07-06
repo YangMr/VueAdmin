@@ -18,7 +18,16 @@ service.interceptors.request.use((config) => {
 })
 
 service.interceptors.response.use((response) => {
-  return response
+  const authorization = response.headers.authorization
+  if (authorization) {
+    store.commit('user/SET_TOKEN', authorization)
+  }
+
+  if (response.data.code === 200) {
+    return response.data.data
+  }
+
+  // TODO 401 token 过期处理
 }, (error) => {
   return Promise.reject(error)
 })

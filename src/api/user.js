@@ -26,6 +26,14 @@ const getUserInfo = () => {
 }
 
 /**
+ * 获取权限数据
+ * @returns
+ */
+const getNav = () => {
+  return request({ url: '/sys/menu/nav', method: 'GET' })
+}
+
+/**
  * 退出登录接口
  * @returns
  */
@@ -37,5 +45,6 @@ export default {
   getCaptcha,
   login,
   getUserInfo,
+  getNav,
   logout
 }
