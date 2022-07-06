@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 import store from '../store'
+import router from '../router'
 
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_API,
@@ -25,6 +26,13 @@ service.interceptors.response.use((response) => {
 
   if (response.data.code === 200) {
     return response.data.data
+  }
+
+  if (response.data.code === 401) {
+    store.commit('SET_TOKEN', '')
+    store.commit('SET_USER_INFO', '')
+    store.commit('SET_NAV', '')
+    router.push('/login')
   }
 
   // TODO 401 token 过期处理
