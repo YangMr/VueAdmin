@@ -4,10 +4,11 @@
       <app-aside></app-aside>
     </el-aside>
     <el-container>
-      <el-header>
+      <el-header class="bg-success">
         <app-header></app-header>
       </el-header>
-      <el-main class="bg-warning">
+      <tags-view></tags-view>
+      <el-main>
         <app-main></app-main>
       </el-main>
     </el-container>
@@ -18,6 +19,7 @@
 import AppAside from './Aside'
 import AppMain from './Main'
 import AppHeader from './Header'
+import TagsView from '../components/TagsView'
 
 </script>
 <style scoped lang='scss'>

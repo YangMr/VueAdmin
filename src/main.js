@@ -6,6 +6,7 @@ import router from './router'
 import store from './store'
 
 import './styles/bootstrap.min.css'
+import './styles/reset.css'
 
 import './permission'
 
